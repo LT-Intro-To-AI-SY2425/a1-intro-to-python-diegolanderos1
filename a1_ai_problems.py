@@ -1,4 +1,5 @@
 # Complete your individualized AI problems here
+# from chatGPT
 
 def fizbuzz(input_num):
     if(input_num%3==0):
