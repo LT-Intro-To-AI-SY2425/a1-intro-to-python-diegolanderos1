@@ -25,8 +25,12 @@ def absolute(n: int) -> int:
     Returns:
         the absolute value of the passed in number
     """
-    raise NotImplementedError("absolute")
+ ##   if n < 0:
+ ##       return -1 * n
+ ##   else:
+ ##       return n
 
+    return -1 * n if n < 0 else n
 
 def factorial(n: int) -> int:
     """Takes a number n, and computes the factorial n! You can assume the passed in
@@ -38,7 +42,11 @@ def factorial(n: int) -> int:
     Returns:
         factorial of the passed in number
     """
-    raise NotImplementedError("factorial")
+    fact = 1
+    while n > 0:
+        fact *= n
+        n -= 1
+    return fact
 
 
 T = TypeVar("T")
@@ -55,7 +63,14 @@ def every_other(lst: List[T]) -> List[T]:
     Returns:
         a list of every of other item in the original list starting with the first
     """
-    raise NotImplementedError("every_other")
+    # java method
+    # lst2 = []
+    # for i in range(0, len(lst), 2): #keeps track of index
+    #     lst2.append(lst[i])
+    # return lst2
+
+    #pythonic method, as few steps as possible
+    return lst[::2]
 
 
 def sum_list(lst: List[int]) -> int:
@@ -68,8 +83,10 @@ def sum_list(lst: List[int]) -> int:
     Returns:
         the sum of the passed in list
     """
-    raise NotImplementedError("sum_list")
-
+    s = 0
+    for el in lst:
+        s += el
+    return s
 
 def mean(lst: List[int]) -> float:
     """Takes a list of numbers, and returns the mean of the numbers.
@@ -80,8 +97,16 @@ def mean(lst: List[int]) -> float:
     Returns:
         the mean of the passed in list
     """
-    raise NotImplementedError("mean")
-
+    # sum = 0
+    # if lst: #same as if lst has something inside of it
+    #     for ec in lst:
+    #         sum += ec
+    #     return sum / len(lst)
+    # else:
+    #     return 0
+    
+    #pythonic
+    return sum_list(lst) / len(lst) if lst else 0
 
 def median(lst: List[int]) -> float:
     """Takes an ordered list of numbers, and returns the median of the numbers.
@@ -95,11 +120,20 @@ def median(lst: List[int]) -> float:
     Returns:
         the median of the passed in list
     """
-    raise NotImplementedError("median")
+    if lst:
+        lstlen = len(lst)
+        if lstlen % 2 == 1:
+            return lst[lstlen//2]
+        else:
+            mid1, mid2 = lstlen // 2 - 1, lstlen //2
+            return (lst[mid1] + lst[mid2]) / 2
+    else:
+        raise ValueError("The list is empty and has no median")
+
 
 
 def duck_duck_goose(lst: List[str]) -> List[str]:
-    """Given an list of names (strings), play 'duck duck goose' with it, knocking out
+    """Given a list of names (strings), play 'duck duck goose' with it, knocking out
     every third name (wrapping around) until only two names are left.
 
     In other words, when you hit the end of the list, wrap around and keep counting from
@@ -117,7 +151,15 @@ def duck_duck_goose(lst: List[str]) -> List[str]:
     Returns:
         the resulting list after playing duck duck goose
     """
-    raise NotImplementedError("duck_duck_goose")
+    index = 0 # start counting from beginning of list
+    while len(lst) > 2:
+        #calculate the index of the name to remove
+        index = (index + 2) % len(lst) # 2 b/c we want to knock out every third
+        lst.pop(index) # remove the name at the calculated index
+    return lst
+    
+
+
 
 
 # this line causes the nested code to be skipped if the file is imported instead of run
