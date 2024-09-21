@@ -13,11 +13,10 @@ Mr. Berg will look at all your files to determine what you have completed.  If t
 ## Reflection Questions
 
 1. What is your initial thoughts about the python programming language?
-
-
+    My initial thoughts are that python is very efficient, and it looks like it could take me a while to learn the pythonic way of programming.
 
 2. Describe some similarities and differences that you found between python and other programming languages you have used in the past?
-
-
+    Python and java are very similar: they both require initialization of variables, both have similar data types like lists, and both have if and while statements. Some differences would be that python uses indentation instead of curly brackets, can be more efficient with lines of code, and does not need data types to be assigned to each variable.
 
 3. What are some things that you learned through this assignment?
+    I learned more about how the for statement works in python, how to write for loops pythonically with “in range,” and how asserts can be used to check function validity.
